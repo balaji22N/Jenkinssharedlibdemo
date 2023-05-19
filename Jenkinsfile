@@ -12,5 +12,12 @@ pipeline {
         }
       }
     }
+    stage( Gitcheckout) {
+      steps {
+        script {
+          mvnTest()
+        }
+      }
+    }
  }
 }
