@@ -1,4 +1,4 @@
-@Library('my-shared-library') _
+@Library('Myfirstshlibs') _
 pipeline {
   agent  any
   stages {
