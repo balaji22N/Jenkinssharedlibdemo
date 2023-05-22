@@ -19,6 +19,14 @@ pipeline {
         }
       }
     }
+    stage('Static code analysis: Sonarqube'){
+      steps{
+        script{
+          def SonarqubecredentialsID = 'sonarqubeapi'
+          statiCodeAnalysis(SonarqubecredentialsID)
+        }
+      }
+    }
     stage( Mavenbuild) {
       steps {
         script {
