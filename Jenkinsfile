@@ -27,6 +27,14 @@ pipeline {
         }
       }
     }
+    stage('QualityGateStatus: Sonarqube'){
+      steps{
+        script{
+          def SonarqubecredentialsID = 'sonarqubeapi'
+          QualityGateStatus(SonarqubecredentialsID)
+        }
+      }
+    }
     stage( Mavenbuild) {
       steps {
         script {
