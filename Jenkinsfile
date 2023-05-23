@@ -9,7 +9,7 @@ pipeline {
         string(name: 'DockerHubUser', description: "name of the Application", defaultValue: 'nishamoorthy')
   }
   stages {
-    stage( Gitcheckout) {
+    stage( 'Gitcheckout') {
       when { expression {  params.action == 'create' } }
       steps {
         script {
@@ -20,7 +20,7 @@ pipeline {
         }
       }
     }
-    stage( Mavenunittest) {
+    stage( 'Mavenunittest') {
       when { expression {  params.action == 'create' } }
       steps {
         script {
@@ -54,7 +54,7 @@ pipeline {
         }
       }
     }
-    stage( Mavenbuild) {
+    stage( 'Mavenbuild : maven') {
       when { expression {  params.action == 'create' } }
       steps {
         script {
@@ -62,13 +62,14 @@ pipeline {
         }
       }
     }
-    stage( Docker image build) {
-      when { expression {  params.action == 'create' } }
-      steps {
-        script {
-          dockerBuild("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
+    stage('Docker Image Build'){
+         when { expression {  params.action == 'create' } }
+            steps{
+               script{
+                   
+                   dockerBuild("${params.ImageName}","${params.ImageTag}","${params.DockerHubUser}")
+               }
+            }
         }
-      }
-    }
  }
 }
