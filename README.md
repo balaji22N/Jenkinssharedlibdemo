@@ -51,3 +51,27 @@ Now we can cleanup by using below commands:
     kubectl delete svc kubernetes-configmap-reload
 # springboot_k8s_application
 # mrdevops_java_app
+
+
+
+---------------------------------------------------
+
+**Jfrog Artifactory:**
+
+sudo apt update
+sudo apt install docker-compose -y
+sudo apt update
+sudo apt install default-jdk -y
+sudo apt install maven -y
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update
+sudo apt install jenkins -y
+
+wget -qO - https://releases.jfrog.io/artifactory/jfrog-gpg-public/jfrog_public_gpg.key | sudo apt-key add -
+echo "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib" | sudo tee -a /etc/apt/sources.list &&    sudo apt update &&
+sudo apt install -y jfrog-cli-v2-jf &&
+jf intro
+
+Jforg cli installation: https://jfrog.com/getcli/
+Jfrog installation : https://www.coachdevops.com/2023/01/how-to-integrate-artifactory-with.html?m=1
